@@ -8,8 +8,7 @@
         mails: [],
       }
     },
-    methods: {
-        getMail() {
+    mounted() {
             for (let i = 0; i < 10; i++) {
                 axios
                 .get(this.url)
@@ -19,6 +18,6 @@
                     this.mails.push(email)
                 })
             }
-        },
-    }
+            // return this.getMail()
+    },
   }).mount('#app')
