@@ -3,15 +3,22 @@
   createApp({
     data() {
       return {
-        mail: null
+        message: 'Random Email',
+        url: 'https://flynn.boolean.careers/exercises/api/random/mail',
+        mails: [],
       }
     },
-    mounted(){
-        axios
-        .get('https://flynn.boolean.careers/exercises/api/random/mail')
-        .then( response => {
-            console.log(response);
-            this.mail = response.data.response
-        })
+    methods: {
+        getMail() {
+            for (let i = 0; i < 10; i++) {
+                axios
+                .get(this.url)
+                .then(result => {
+                    const email = result.data.response;
+                    console.log(email);
+                    this.mails.push(email)
+                })
+            }
+        },
     }
   }).mount('#app')
