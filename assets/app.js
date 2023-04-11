@@ -3,7 +3,6 @@
   createApp({
     data() {
       return {
-        message: 'Hello Vue',
         mail: null
       }
     },
